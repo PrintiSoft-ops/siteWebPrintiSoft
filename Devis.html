@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Printisoft — Demande de devis. Décrivez votre projet pour obtenir un devis gratuit.">
+    <title>Printisoft - Devis</title>
+    <link rel="stylesheet" href="Global.css">
+    <link rel="stylesheet" href="Devis.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="header"></div>
+    
+    <section class="Demandez_un_devis">
+        <div class="Devis_client">
+            <h1>Devis</h1>
+            <h3><a href="index.html">Accueil</a> > Demandez un devis</h3>
+        </div>
+    </section>
+    
+    <section class="Demande_devis">
+        <h2>Demande de devis</h2>
+        <form id="devisForm">
+            <!-- Étape 1 - Informations client -->
+            <fieldset class="form-group">
+                <h3>Informations du client</h3>
+                <div class="customer-information">
+                    <label>Nom / Entreprise :</label>
+                    <input type="text" name="nom" required>
+                </div>
+                <div class="customer-information">
+                    <label>Email :</label>
+                    <input type="email" name="email" required>
+                </div>
+                <div class="customer-information">
+                    <label>Téléphone :</label>
+                    <input type="tel" name="tel" required>
+                </div>
+                <div class="buttons">
+                    <button type="button" data-action="next">Suivant</button>
+                </div>
+            </fieldset>
+            
+            <!-- Étape 2 - Choix du service -->
+            <fieldset class="radio-group">
+                <legend>Choisissez un service</legend>
+                <label><input type="radio" name="service" value="graphisme" required> Création graphique</label>
+                <label><input type="radio" name="service" value="impression"> Impression numérique</label>
+                <label><input type="radio" name="service" value="software"> Software & Cloud Computing</label>
+                <div class="buttons">
+                    <button type="button" data-action="prev">Précédent</button>
+                    <button type="button" data-action="next">Suivant</button>
+                </div>
+            </fieldset>
+            
+            <!-- Étape 3 - Questionnaire -->
+            <fieldset>
+                <h3>Détails du projet</h3>
+                <div id="questions"></div>
+                <div class="buttons">
+                    <button type="button" data-action="prev">Précédent</button>
+                    <button type="submit">Envoyer</button>
+                </div>
+            </fieldset>
+        </form>
+    </section>
+    
+    <div class="contact"></div>
+    <div class="footer"></div>
+    
+    <script src="js/include.js"></script>
+    <script src="js/devis.js"></script>
+</body>
+</html>

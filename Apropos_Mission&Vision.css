@@ -1,0 +1,98 @@
+
+.Mission_Vision{
+  position: relative;
+  padding: 8rem 5% 4rem;
+  background: #f5f5f5;
+  min-height: 300px;
+}
+.Mission_Vision h3{
+  padding-bottom: 80px;
+}
+.Mission_Vision h1{
+padding-top: 30px;
+color:#23869f
+}
+
+.MissionVision{
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.MissionVision h3{
+font-size: 20px !important;
+padding-right:50px;
+margin-top:15px;
+margin-bottom:30px;
+color:#3a3978;
+}
+.MissionVision a {  
+  text-decoration:none;
+  color:#3a3978;
+  margin-top: 150px;
+  font-weight: 900;
+}
+.MissionVision a:hover{
+  text-decoration: underline;
+}
+.MissionVision a::after {
+  content: '>>';              /* flèche */
+  margin-left: 20px;          /* espace entre le texte et la flèche */   
+  margin-right:20px;
+  display: inline-block;           /* nécessaire pour que transform fonctionne */  
+  font-weight: 700;/* Epaisseur de la fleche*/
+  font-size: 20px;/* Taille de la fleche */
+}
+
+section .Description_Mission_Vision {
+  position:relative;
+  padding:100px;
+  height:1000px;
+}
+
+.Description_Mission_Vision p{
+text-align: center;
+}
+.Grid_Mission_Vision{
+  display:grid;
+  grid-template-columns: 500px 500px ;
+  grid-template-rows: 300px 300px;
+  gap:0px 150px;
+  grid-template-areas: 
+  "Mission Vision" 
+  "Mission_Description Vision_Description";
+  position:relative;
+  margin-top: 40px;
+  place-content: center;
+  z-index:1;
+}
+/*style commun a toutes les zones*/
+.Grid_Mission_Vision div{
+  background:#f5f5f5;/*Fond de chaque case*/
+  /*border:0.2px solid #2c3e50;/*  bordure autour de chaque case*/
+  border-radius:12px;/*arrondis*/
+  /*padding:1.2rem;*/
+  /*color:#e8eefc;*/
+  text-align:center;
+  /*box-shadow: 0 4px 12px rgb(0,0,0,0.25);*/
+}
+/* affectation des zones*/
+.Mission {grid-area:Mission;}
+.Vision {grid-area:Vision;}
+.Mission_Description {grid-area:Mission_Description;}
+.Vision_Description {grid-area:Vision_Description;}
+
+.Grid_Mission_Vision img{
+  height: 250px;
+  width:250px;
+  margin-top: 30px;
+}
+.Grid_Mission_Vision h3{
+  font-size: 25px !important;
+    color:#3a3978;
+    margin-top:25px;
+    margin-bottom: 25px;
+}
+.Grid_Mission_Vision p{
+margin-left: 40px;
+margin-right:40px;
+line-height:1.6;
+}

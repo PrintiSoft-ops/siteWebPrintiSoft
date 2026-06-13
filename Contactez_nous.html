@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Printisoft — Contactez-nous. Coordonnées et formulaire de contact pour vos demandes de devis et informations.">
+    <title>Printisoft - Contactez-nous</title>
+    <link rel="stylesheet" href="Global.css">
+    <link rel="stylesheet" href="Contactez_Nous.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="header"></div>
+    
+    <section class="Contactez-Nous">
+        <div class="Contact-us">
+            <h1>Contactez-Nous</h1>
+            <h3><a href="index.html">Accueil</a> > Contact</h3>
+        </div>
+    </section>
+
+    <section class="contact-info-section">
+        <div class="contact-grid">
+            <div class="contact-card">
+                <img src="images_printisoft/location.png" alt="Adresse">
+                <h3>Notre Adresse</h3>
+                <p>Carrefour Deido plage<br>Douala - Cameroun</p>
+            </div>
+            <div class="contact-card">
+                <img src="images_printisoft/phone1.png" alt="Téléphone">
+                <h3>Téléphone</h3>
+                <p><a href="tel:+237697877597">+237 697 877 597</a><br><a href="tel:+237682845084">+237 682 845 084</a></p>
+            </div>
+            <div class="contact-card">
+                <img src="images_printisoft/email.png" alt="Email">
+                <h3>Email</h3>
+                <p><a href="mailto:Printisoft@gmail.com">Printisoft@gmail.com</a></p>
+            </div>
+            <div class="contact-card">
+                <img src="images_printisoft/whatsapp.png" alt="WhatsApp">
+                <h3>WhatsApp</h3>
+                <p><a href="https://wa.me/237697877597">+237 697 877 597</a></p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-form-section">
+        <div class="contact-form-container">
+            <h2>Envoyez-nous un message</h2>
+            <form id="contactForm" action="https://formspree.io/f/meewpgdo" method="POST">
+                <input type="hidden" value="Message">
+                <div class="form-group">
+                    <label for="nom">Nom complet *</label>
+                    <input type="text" id="nom" name="nom" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="telephone">Téléphone</label>
+                    <input type="tel" id="telephone" name="telephone">
+                </div>
+                <div class="form-group">
+                    <label for="service">Service concerné</label>
+                    <select id="service" name="service">
+                        <option value="">-- Sélectionnez --</option>
+                        <option value="graphisme">Création graphique</option>
+                        <option value="impression">Impression numérique</option>
+                        <option value="software">Software & Cloud</option>
+                        <option value="autre">Autre</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message *</label>
+                    <textarea id="message" name="message" rows="5" required placeholder="Décrivez votre projet ou votre demande..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Envoyer le message</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="map-section">
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3979.7617830762492!2d9.709358574390288!3d4.0688957959048615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1061126d8f999983%3A0x2b9d9ed1547e70b!2sCarrefour%20Deido%20plage!5e0!3m2!1sfr!2scm!4v1781302967114!5m2!1sfr!2scm" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+
+    <div class="contact"></div>
+    <div class="footer"></div>
+
+    <script src="js/include.js"></script>
+    <script>
+        // Gestion du formulaire de contact
+        document.getElementById('contactForm')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Merci pour votre message ! Nous vous répondrons dans les plus brefs délais.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>

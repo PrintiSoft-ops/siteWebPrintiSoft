@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Printisoft — Software & Cloud computing. Développement d'applications, hébergement cloud, bases de données et services IT.">
+    <title>Printisoft - Software & Cloud Computing</title>
+    <link rel="stylesheet" href="Global.css">
+    <link rel="stylesheet" href="Service_Software_cloud.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="header"></div>
+    
+    <section class="Service_Software_Cloud">
+        <div class="Software_Cloud">
+            <h1>Software & Cloud computing</h1>
+            <h3><a href="index.html">Accueil</a> > Services > Software & Cloud</h3>
+        </div>
+    </section>
+    
+    <section class="Description_Software_Cloud">
+        <h2>Nos services Cloud & Software</h2>
+        <div class="Grid_software_cloud">
+            <div class="Application"><h3>Développement d'applications web et mobile</h3></div>
+            <div class="Hebergement"><h3>Hébergement d'applications</h3></div>
+            <div class="Base_de_donnee"><h3>Création et gestion des bases de données Cloud</h3></div>
+            <div class="sauvegarde_sinistre"><h3>Sauvegarde & reprise après sinistre</h3></div>
+            <div class="Virtualisation_infrastructure"><h3>Virtualisation d'infrastructures</h3></div>
+            <div class="conseil_accompagnement"><h3>Conseil & migration vers le cloud</h3></div>
+        </div>
+        
+        <div class="Description_activité_software_cloud">
+            <h4>💻 Développement d'applications web, mobile & PC</h4>
+            <p>Chez Printisoft, nous concevons des solutions logicielles adaptées aux réalités des entreprises locales. Que vous soyez un supermarché, un restaurant, une pharmacie, une école ou une société de distribution, nous développons des applications qui simplifient la gestion et boostent votre productivité.</p>
+            <p><strong>Nos solutions incluent :</strong></p>
+            <ul>
+                <li><strong>Applications web :</strong> plateformes e-commerce, vitrine, gestion des commandes, réservations en ligne</li>
+                <li><strong>Logiciels PC :</strong> gestion de stocks, facturation, suivi des ventes et des achats</li>
+                <li><strong>Applications mobiles (Android & iOS) :</strong> outils pour fidéliser vos clients, suivre vos activités</li>
+                <li><strong>Outils spécialisés :</strong> adaptés à la quincaillerie, l'électronique, l'aviculture, l'agroalimentaire</li>
+                <li><strong>Évolutivité & maintenance :</strong> mise à jour et accompagnement technique continu</li>
+            </ul>
+
+            <h4>☁️ Hébergement d'applications web et mobile</h4>
+            <p>Chez Printisoft, nous assurons l'hébergement sécurisé et performant de vos applications web et mobiles. Nous vous garantissons une disponibilité optimale de vos services en ligne.</p>
+            <p><strong>Nos at

@@ -1,0 +1,148 @@
+/* Services Graphisme Page Styles */
+.Service_Création_graphique {
+    position: relative;
+    padding: 8rem 5% 4rem;
+    background: #f5f5f5;
+    min-height: 300px;
+}
+
+.Service_Création_graphique h1 {
+    padding-top: 2rem;
+    color: #23869f;
+    font-size: clamp(2rem, 5vw, 3rem);
+}
+
+.Service_Création_graphique h3 {
+    font-size: 1rem;
+    margin-top: 1rem;
+    font-weight: normal;
+}
+
+.création_graphique {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.création_graphique h3 {
+    font-size: 1rem !important;
+    margin: 1rem 0;
+    color: #3a3978;
+    text-align: left;
+}
+
+.création_graphique a {
+    text-decoration: none;
+    color: #3a3978;
+    font-weight: 600;
+}
+
+.création_graphique a:hover {
+    text-decoration: underline;
+}
+
+.création_graphique a::after {
+    content: '>>';
+    margin-left: 10px;
+    display: inline-block;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+/* Description Section */
+.Description_Création_graphique {
+    padding: 4rem 5%;
+    background: white;
+}
+
+.Description_Création_graphique h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+/* Grid des services */
+.Grid_création_graphique {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto 3rem;
+}
+
+.Grid_création_graphique div {
+    background: #f5f5f5;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.Grid_création_graphique div:hover {
+    transform: translateY(-5px);
+    background: #e8eefc;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.Grid_création_graphique h3 {
+    font-size: 1.1rem;
+    color: #3a3978;
+    margin: 0;
+}
+
+/* Description détaillée */
+.Description_activité_graphisme {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: justify;
+}
+
+.Description_activité_graphisme h4 {
+    color: #3a3978;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #23869f;
+    display: inline-block;
+}
+
+.Description_activité_graphisme p {
+    margin-bottom: 1rem;
+    line-height: 1.8;
+}
+
+.Description_activité_graphisme ul {
+    margin: 1rem 0 1rem 2rem;
+}
+
+.Description_activité_graphisme li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+@media (max-width: 768px) {
+    .Service_Création_graphique {
+        padding: 6rem 1.5rem 2rem;
+    }
+    
+    .Description_Création_graphique {
+        padding: 2rem 1.5rem;
+    }
+    
+    .Grid_création_graphique {
+        gap: 1rem;
+    }
+    
+    .Grid_création_graphique div {
+        padding: 1rem;
+    }
+    
+    .Grid_création_graphique h3 {
+        font-size: 0.9rem;
+    }
+    
+    .Description_activité_graphisme ul {
+        margin-left: 1.5rem;
+    }
+}
