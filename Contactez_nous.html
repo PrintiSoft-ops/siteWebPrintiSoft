@@ -48,7 +48,8 @@
         <div class="contact-form-container">
             <h2>Envoyez-nous un message</h2>
             <form id="contactForm" action="https://formspree.io/f/meewpgdo" method="POST">
-                <input type="hidden" value="Message">
+                <input type="hidden" name="_subject" value="Contact - Nouveau message">
+                <input type="hidden" name="_captcha" value="false">                
                 <div class="form-group">
                     <label for="nom">Nom complet *</label>
                     <input type="text" id="nom" name="nom" required>
