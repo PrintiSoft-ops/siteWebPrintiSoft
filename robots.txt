@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://printisoft.vercel.app/sitemap.xm
