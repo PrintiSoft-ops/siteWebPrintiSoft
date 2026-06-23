@@ -3,6 +3,19 @@ document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('devisForm');
     if (!form) return;
 
+    //  AJOUT : Champs cachés pour Formspree 
+    const hiddenSubject = document.createElement('input');
+    hiddenSubject.type = 'hidden';
+    hiddenSubject.name = '_subject';
+    hiddenSubject.value = 'Devis - Nouvelle demande';
+    form.prepend(hiddenSubject);
+
+    const hiddenCaptcha = document.createElement('input');
+    hiddenCaptcha.type = 'hidden';
+    hiddenCaptcha.name = '_captcha';
+    hiddenCaptcha.value = 'false';
+    form.prepend(hiddenCaptcha);
+
     const fieldsets = Array.from(form.querySelectorAll(':scope > fieldset'));
     let currentStep = 0;
 
@@ -15,13 +28,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function nextStep() {
         if (currentStep < fieldsets.length - 1) {
-            // Validation de l'étape courante
             if (!validateCurrentStep()) return;
-            
             currentStep++;
             if (currentStep === 2) loadQuestions();
             showStep(currentStep);
-            updateButtons();
         }
     }
 
@@ -29,7 +39,6 @@ document.addEventListener('DOMContentLoaded', function() {
         if (currentStep > 0) {
             currentStep--;
             showStep(currentStep);
-            updateButtons();
         }
     }
     
@@ -50,7 +59,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
         
-        // Validation spécifique pour les radios
         if (currentStep === 1) {
             const radios = currentFieldset.querySelectorAll('input[type="radio"]');
             const checked = Array.from(radios).some(r => r.checked);
@@ -65,22 +73,19 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         return isValid;
     }
-    
-    function updateButtons() {
-        const buttons = document.querySelectorAll('.buttons button');
-        // La mise à jour se fait via l'affichage
-    }
 
+    //  loadQuestions() - Suppression des balises <form> 
     function loadQuestions() {
         const service = form.querySelector('input[name="service"]:checked');
         const serviceValue = service ? service.value : '';
         const qDiv = document.getElementById('questions');
         if (!qDiv) return;
         qDiv.innerHTML = '';
+        qDiv.style.display = 'block';
 
+        // On ajoute les champs DIRECTEMENT (SANS balise <form>)
         if (serviceValue === 'graphisme') {
-            qDiv.innerHTML = `<form action="https://formspree.io/f/meewpgdo" method="POST">
-                <input type="hidden" value="type projet graphique">
+            qDiv.innerHTML = `
                 <div class="customer-information">
                     <label>Type de projet graphique souhaité:</label>
                     <select name="type_graphisme" required>
@@ -95,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
                 <div class="customer-information">
                     <label>Description détaillée du projet:</label>
-                    <textarea name="description" rows="5" placeholder="Décrivez vos attentes, vos idées, vos besoins..."></textarea>
+                    <textarea name="description_graphisme" rows="5" placeholder="Décrivez vos attentes, vos idées, vos besoins..."></textarea>
                 </div>
                 <div class="customer-information">
                     <label>Formats et dimensions souhaitées:</label>
@@ -103,17 +108,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
                 <div class="customer-information">
                     <label>Nombre d'exemplaires:</label>
-                    <input type="number" name="exemplaires">
-                </div></form>`;
+                    <input type="number" name="exemplaires" placeholder="Nombre d'exemplaires">
+                </div>
+            `;
         } else if (serviceValue === 'impression') {
-            qDiv.innerHTML = `<form action="https://formspree.io/f/meewpgdo" method="POST">
+            qDiv.innerHTML = `
                 <div class="customer-information">
                     <label>Type d'impression:</label>
                     <input type="text" name="type_impression" required placeholder="Ex: offset, numérique...">
                 </div>
                 <div class="customer-information">
                     <label>Type de produit à imprimer:</label>
-                    <select name="impression" required>
+                    <select name="produit_impression" required>
                         <option value="">--Sélectionnez--</option>
                         <option value="flyers">Flyers</option>
                         <option value="carte">Carte de visite</option>
@@ -129,7 +135,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <input type="text" name="grammage" placeholder="Ex: 70g, 80g, 135g, 250g, 350g">
                 </div>
                 <div class="customer-information">
-                    <label>Type d'impression:</label>
+                    <label>Impression:</label>
                     <select name="impression_format" required>
                         <option value="">--Sélectionnez--</option>
                         <option value="recto">Recto uniquement</option>
@@ -138,7 +144,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
                 <div class="customer-information">
                     <label>Quantité:</label>
-                    <input type="number" name="quantite">
+                    <input type="number" name="quantite" placeholder="Nombre d'exemplaires">
                 </div>
                 <div class="customer-information">
                     <label>Couleur:</label>
@@ -155,9 +161,10 @@ document.addEventListener('DOMContentLoaded', function() {
                         <option value="besoin_maquette">Oui, besoin d'une maquette</option>
                         <option value="deja_pret">Non, fichier déjà prêt</option>
                     </select>
-                </div></form>`;
+                </div>
+            `;
         } else if (serviceValue === 'software') {
-            qDiv.innerHTML = `<form action="https://formspree.io/f/meewpgdo" method="POST">
+            qDiv.innerHTML = `
                 <div class="customer-information">
                     <label>Type de projet:</label>
                     <input type="text" name="type_projet" required placeholder="Ex: e-commerce, gestion, etc.">
@@ -177,11 +184,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="customer-information">
                     <label>Fonctionnalités principales:</label>
                     <textarea name="fonctionnalites" rows="4" placeholder="Décrivez les fonctionnalités souhaitées..."></textarea>
-                </div></form>`;
+                </div>
+            `;
         }
     }
 
-    // Délégation d'événements pour les boutons
+    // Navigation par boutons
     document.addEventListener('click', function(e) {
         const btn = e.target.closest('button[data-action]');
         if (!btn) return;
@@ -191,32 +199,72 @@ document.addEventListener('DOMContentLoaded', function() {
         if (action === 'prev') prevStep();
     });
 
+    // === MODIFICATION : Soumission du formulaire vers Formspree ===
     form.addEventListener('submit', function(e) {
         e.preventDefault();
         
-        const data = new FormData(form);
-        const obj = {};
-        data.forEach((val, key) => obj[key] = val);
-        
-        let devis = [];
-        try {
-            const stored = localStorage.getItem('devisPrintisoft');
-            devis = stored ? JSON.parse(stored) : [];
-        } catch (err) {
-            devis = [];
-        }
-        
-        devis.push({
-            ...obj,
-            date: new Date().toISOString()
+        // Validation finale des champs requis
+        const requiredFields = form.querySelectorAll('[required]');
+        let allValid = true;
+        requiredFields.forEach(field => {
+            if (!field.value.trim()) {
+                allValid = false;
+                field.style.borderColor = 'red';
+            } else {
+                field.style.borderColor = '';
+            }
         });
         
-        localStorage.setItem('devisPrintisoft', JSON.stringify(devis));
-        alert('Merci! Votre demande a été enregistrée. Nous vous contacterons sous 24h.');
+        if (!allValid) {
+            alert('Veuillez remplir tous les champs obligatoires');
+            return;
+        }
+
+        // Envoyer à Formspree
+        const formData = new FormData(form);
         
-        form.reset();
-        currentStep = 0;
-        showStep(currentStep);
+        fetch('https://formspree.io/f/meewpgdo', {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                alert('Merci ! Votre demande de devis a été envoyée avec succès. Nous vous contacterons sous 24h.');
+                form.reset();
+                currentStep = 0;
+                showStep(currentStep);
+                document.getElementById('questions').innerHTML = '';
+            } else {
+                alert('Une erreur est survenue. Veuillez réessayer.');
+            }
+        })
+        .catch(error => {
+            console.error('Erreur:', error);
+            alert('Erreur de connexion. Vérifiez votre internet.');
+        });
+
+        // Sauvegarde locale en parallèle (optionnel)
+        try {
+            const data = new FormData(form);
+            const obj = {};
+            data.forEach((val, key) => obj[key] = val);
+            
+            let devis = [];
+            const stored = localStorage.getItem('devisPrintisoft');
+            devis = stored ? JSON.parse(stored) : [];
+            
+            devis.push({
+                ...obj,
+                date: new Date().toISOString()
+            });
+            
+            localStorage.setItem('devisPrintisoft', JSON.stringify(devis));
+        } catch (err) {
+            console.log('Erreur de sauvegarde locale:', err);
+        }
     });
 
     // Initialisation
